@@ -1,5 +1,7 @@
 <?php
 
+use App\UserDomicilio;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('user_domicilio', function () {
+    return UserDomicilio::all();
+});
+
+Route::get('user_domicilio/{user_id}', function ($user_id) {
+    $ud = UserDomicilio::where('user_id', $user_id)->get();
+    $u = User::find($user_id)->get();
+    return [$ud, $u];
 });

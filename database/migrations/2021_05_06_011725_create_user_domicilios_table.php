@@ -16,6 +16,7 @@ class CreateUserDomiciliosTable extends Migration
         Schema::create('user_domicilios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer("user_id");
             $table->string("numero_exterior");
             $table->string("colonia");
             $table->string("cp");

@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('user_domicilio', 'UserController@index');
+Route::get('user_domicilio/{user_id}', 'UserController@show');
+Route::get('fecha_nacimiento/{user_id}', 'UserController@calcular_edad');
